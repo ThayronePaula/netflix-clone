@@ -1,8 +1,9 @@
 import React from "react";
 
-import {getHomeList,getMovieInfo} from "./Tmdb";
+import { getHomeList, getMovieInfo } from "./Tmdb";
 import MovieRow from "./components/MovieRow";
 import FeaturedMovie from "./components/FeaturedMovie";
+import Header from "./components/Header";
 
 import "./App.css";
 
@@ -19,21 +20,21 @@ function App() {
       let randomChosen = originals[0].items.results.length;
 
       randomChosen = Math.floor(Math.random() * randomChosen);
-      const choisen = originals[ 0 ].items.results[ randomChosen ]
-      let chosenInfo = await getMovieInfo( choisen.id, 'tv' )
-      setFeaturedData(chosenInfo)
-      console.log( chosenInfo );
-      
+      const choisen = originals[0].items.results[randomChosen];
+      let chosenInfo = await getMovieInfo(choisen.id, "tv");
+      setFeaturedData(chosenInfo);
     };
 
     loadAll();
   }, []);
 
   if (!movieList) return null;
-
+  // console.log(movieList)
   return (
     <div className="page">
-      { featuredData && <FeaturedMovie item={ featuredData} />}
+      <Header />
+
+      {featuredData && <FeaturedMovie item={featuredData} />}
       <section className="list">
         {movieList.map(({ title, items }, index) => (
           <MovieRow key={index} title={title} item={items} />

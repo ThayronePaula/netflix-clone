@@ -11,3 +11,11 @@ body{
   font-family: 'Roboto', sans-serif;
   color:#fff;
 }
+
+button{
+  cursor: pointer;
+}
+
+.list{
+  margin-top: -70px;
+}

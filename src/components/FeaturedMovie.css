@@ -1,6 +1,6 @@
 .featured {
-  width:100%;
-  height: 100vh;
+  width: 100%;
+  height:100vh;
 }
 
 .featured--vertical {
@@ -8,16 +8,102 @@
   height: inherit;
   background: linear-gradient(to top, #111 10%, transparent 90%);
   
+
 }
 
 
-.featured--horizontal{
+.featured--horizontal {
   width: inherit;
   height: inherit;
   background: linear-gradient(to right, #111 15%, transparent);
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  padding:70px 0 70px 30px;
+  
 }
 
 
-.featured--about{
+.featured--about {
+  /* padding-top: 10rem; */
+  margin: 0;
+}
 
+
+.featured--about h1 {
+
+  font-size: 50px;
+
+}
+
+.featured--about p {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #999;
+  max-width: 40%;
+}
+
+.featured--info {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+
+.featured--head span:nth-of-type(1) {
+  display: inline-block;
+  color: #46d369;
+}
+
+.featured--head span:nth-of-type(2) {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.featured--buttons {
+  margin-top: 15px;
+}
+
+.featured--buttons button {
+  padding: .8rem 1.5rem;
+  border: none;
+  font-weight: bold;
+  border-radius: .2rem;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+
+}
+
+.featured--buttons button:nth-of-type(1) {
+  background: #eee;
+  margin-right: 1rem;
+  color: #000;
+}
+
+.featured--buttons button:nth-of-type(1):hover {
+  background: #b9b9b9;
+}
+
+.featured--buttons button:nth-of-type(2) {
+  background: #444;
+  color: #fff;
+}
+
+.featured--buttons button:nth-of-type(2):hover {
+  background: #666;
+
+
+}
+
+.featured--genres {
+  margin-top: 15px;
+  color: #999;
+
+  
+}
+
+.featured--genres h3 {
+  display: inline-block;
+  margin-right: .3rem;
+user-select: none;
 }
