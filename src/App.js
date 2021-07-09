@@ -10,6 +10,7 @@ import "./App.css";
 function App() {
   const [movieList, setMovieList] = React.useState([]);
   const [featuredData, setFeaturedData] = React.useState(null);
+  const [blackHeader, setBlackHeader] = React.useState(false);
   React.useEffect(() => {
     const loadAll = async () => {
       const list = await getHomeList();
@@ -27,12 +28,25 @@ function App() {
 
     loadAll();
   }, []);
+  React.useEffect(() => {
+    const scroll = window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
+      }
+    });
 
-  if (!movieList) return null;
+    return () => {
+      window.removeEventListener("scroll", scroll);
+    };
+  }, []);
+
+  // if (!movieList) return null;
   // console.log(movieList)
   return (
     <div className="page">
-      <Header />
+      <Header black={blackHeader} />
 
       {featuredData && <FeaturedMovie item={featuredData} />}
       <section className="list">
@@ -40,6 +54,25 @@ function App() {
           <MovieRow key={index} title={title} item={items} />
         ))}
       </section>
+      <footer>
+        Feito com{" "}
+        <span role="img" aria-label="coração">
+          ❤️
+        </span>{" "}
+        por Thayrone de Paula.
+        <br />
+        Direitos de imagems a Netflix. <br />
+        Api pega no site da themoviedb.org.
+      </footer>
+
+      {movieList.length <= 0 && (
+        <div className="loading">
+          <img
+            src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif"
+            alt="Carregando"
+          />
+        </div>
+      )}
     </div>
   );
 }

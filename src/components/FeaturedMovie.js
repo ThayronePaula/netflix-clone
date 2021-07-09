@@ -8,6 +8,7 @@ const FeaturedMovie = ({ item }) => {
   for (let i of item.genres) {
     genres.push(i.name);
   }
+
   return (
     <section
       className="featured"
@@ -36,12 +37,7 @@ const FeaturedMovie = ({ item }) => {
                 <button>+ Minha lista</button>
               </div>
               <div className="featured--genres">
-                {genres.length && genres.length === 1 ? (
-                  <h3>Gênero:</h3>
-                ) : (
-                  <h3>Gêneros:</h3>
-                )}
-
+                {genres.length ? genres.length < 2 ? <h3>Gênero:</h3> : <h3>Gêneros:</h3>:''}
                 {genres.join(", ")}
               </div>
             </div>
